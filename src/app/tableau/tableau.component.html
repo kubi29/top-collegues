@@ -1,0 +1,19 @@
+<div class="col-12">
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Nom</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr *ngFor="let collegue of collegues" >
+              <td><img class="img-responsive mx-auto d-block round" src={{collegue.image}} height="125rem" width="125rem"></td>
+              <td>{{collegue.nom}}</td>
+              <td>{{collegue.score}}</td>
+          </tr>
+
+    </tbody>
+  </table>
+  </div>

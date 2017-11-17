@@ -1,0 +1,20 @@
+<div class="row">
+    <div *ngFor="let collegue of collegues" >
+            <div class="card">
+                    <div class="container">
+                    <div class="row">
+                        <img class="img-responsive mx-auto d-block round" src={{collegue.image}} height="355rem" width="355rem">
+                    </div>
+                </div>
+                    <div class="row col-2 offset-5">
+                        <label>{{collegue.nom}}</label>
+                        <label>{{collegue.score}}</label>
+                    </div>
+                    <div class="row">
+                    <button type="button" class="btn btn-primary col-4 offset-1" (click)="jaime(collegue)">j'aime</button>
+                    <button type="button" class="btn btn-danger col-4 offset-2" (click)="jedeteste(collegue)">je déteste</button>
+                    </div>
+                </div>
+                
+    </div>
+  </div>
