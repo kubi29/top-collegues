@@ -10,11 +10,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { TableauComponent } from './tableau/tableau.component';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import { ClassiqueComponent } from './classique/classique.component';
+import { DetailComponent } from './detail/detail.component';
 
 const appRoutes: Routes = [
   { path: 'classique', component: ClassiqueComponent }, 
   { path: 'tableau', component: TableauComponent },
   { path: 'carrousel', component:  CarrouselComponent},
+  { path: 'detail/:nom', component:  DetailComponent},
   { path: '**', redirectTo: 'classique'} 
   ];
 
@@ -25,6 +27,7 @@ const appRoutes: Routes = [
     TableauComponent,
     CarrouselComponent,
     ClassiqueComponent,
+    DetailComponent,
   ],
   imports: [
     BrowserModule,
