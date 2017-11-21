@@ -1,5 +1,13 @@
 <div class="row">
-    <div *ngFor="let collegue of collegues" >
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">limite</span>
+        <input type="text" class="form-control" (keyup)="limite($event)" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Filtre par pseudo</span>
+            <input type="text" class="form-control" (keyup)="filtrePseudo($event)" aria-describedby="basic-addon1">
+    </div>
+    <div *ngFor="let collegue of (collegues | slice:0:size) | nom:filtre" >
             <div class="card">
                     <div class="container">
                     <div class="row">
@@ -9,10 +17,10 @@
                     </div>
                 </div>
                     <div class="row col-4 offset-5">
-                        <label>{{collegue.nom}}</label>
+                        <label>{{collegue.nom | uppercase}}</label>
                     </div>
                     <div class="row col-4 offset-5">
-                        <label>{{collegue.score}}</label>
+                     <label [innerHTML]="collegue.score | score" ></label> 
                     </div>
                     <div class="row">
                     <button type="button" class="btn btn-primary col-4 offset-1" (click)="jaime(collegue)">j'aime</button>

@@ -11,6 +11,8 @@ import { TableauComponent } from './tableau/tableau.component';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import { ClassiqueComponent } from './classique/classique.component';
 import { DetailComponent } from './detail/detail.component';
+import { ScorePipe } from './shared/pipe/score.pipe';
+import { NomPipe } from './shared/pipe/nom.pipe';
 
 const appRoutes: Routes = [
   { path: 'classique', component: ClassiqueComponent }, 
@@ -28,6 +30,8 @@ const appRoutes: Routes = [
     CarrouselComponent,
     ClassiqueComponent,
     DetailComponent,
+    ScorePipe,
+    NomPipe,
   ],
   imports: [
     BrowserModule,

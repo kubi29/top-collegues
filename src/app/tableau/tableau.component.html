@@ -1,3 +1,11 @@
+<div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">limite</span>
+    <input type="text" class="form-control" (keyup)="limite($event)" aria-describedby="basic-addon1">
+</div>
+<div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Filtre par pseudo</span>
+        <input type="text" class="form-control" (keyup)="filtrePseudo($event)" aria-describedby="basic-addon1">
+</div>
 <div class="col-12">
 <table class="table table-hover">
     <thead>
@@ -9,14 +17,14 @@
       </tr>
     </thead>
     <tbody>
-          <tr *ngFor="let collegue of collegues" >
+          <tr *ngFor="let collegue of (collegues | slice:0:size) | nom:filtre" >
               <td>
                   <a routerLink="/detail/{{collegue.nom}}" RouterLinkActive="active-link">
                     <img class="img-responsive mx-auto d-block round" src={{collegue.image}} height="125rem" width="125rem">
                   </a>
               </td>
-              <td>{{collegue.nom}}</td>
-              <td>{{collegue.score}}</td>
+              <td>{{collegue.nom | uppercase}}</td>
+              <td><label [innerHTML]="collegue.score | score" ></label> </td>
               <td><button class="btn btn-outline-primary" (click)="jaime(collegue)">J'aime</button>
               <button class="btn btn-outline-danger" (click)="jedeteste(collegue)">Je déteste</button></td>
           </tr>

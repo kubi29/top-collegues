@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl:"https://kubi.cleverapps.io"
+  apiUrl:"https://collegues.cleverapps.io/"
 };

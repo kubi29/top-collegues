@@ -1,8 +1,16 @@
+<div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">limite</span>
+    <input type="text" class="form-control" (keyup)="limite($event)" aria-describedby="basic-addon1">
+</div>
+<div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Filtre par pseudo</span>
+        <input type="text" class="form-control" (keyup)="filtrePseudo($event)" aria-describedby="basic-addon1">
+</div>
 <ngb-carousel>
-  <ng-template ngbSlide *ngFor="let collegue of collegues">
+  <ng-template ngbSlide *ngFor="let collegue of (collegues | slice:0:size) | nom:filtre">
       <a routerLink="/detail/{{collegue.nom}}" RouterLinkActive="active-link"><img src={{collegue.image}} class="rounded mx-auto d-block" alt="Photo du collegue" height="500rem" width="600rem"/></a>
             <div class="carousel-caption">
-              <h2>{{collegue.score}}</h2>
+              <h2><label [innerHTML]="collegue.score | score" ></label> </h2>
               <button class="btn btn-outline-primary" (click)="jaime(collegue)">J'aime</button>
               <button class="btn btn-outline-danger" (click)="jedeteste(collegue)">Je déteste</button>
       </div>
